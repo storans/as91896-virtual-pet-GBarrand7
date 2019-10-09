@@ -1,8 +1,12 @@
+# Program to check is person if eligible for superannuation
+# Superannuation age is a constant as it is not changed in the program
 SUPER_AGE = 65
 keep_going = ""
 
+# Loop to allow for continual testing of different values
 while keep_going == "":
     age = int(input("How old are you?"))
+    # Must be greater than or equal to as 65 year olds are eligible for superannuation
     if age >= SUPER_AGE:
         print("Yes super")
     else:
