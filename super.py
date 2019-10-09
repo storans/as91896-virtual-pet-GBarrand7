@@ -12,6 +12,7 @@ while keep_going == "":
     else:
         print("NO SUPER FOR YOU!!")
 
+    # Asks user for input to either break or continue the loop
     keep_going = input("If you want to continue press <enter> otherwise press any other letter to quit")
 
 print("Thanks for telling us your personal details we will now sell them ;)")
