@@ -9,16 +9,21 @@ LOW = 3.5
 keep_going = ""
 
 # Loop to allow for continual testing of values
-while keep_going = "":
+while keep_going == "":
     # Getting input from the user for their cat's weight
-    weight = int(input("How much does your cat weigh?"))
+    weight = float(input("How much does your cat weigh?"))
+    print("")
     # Weight is greater than or equal to 3.5 or less than or equal to 4.5 as these are still healthy weights
     if 3.5 <= weight <= 4.5:
         print("Your cat is in a healthy weight range")
+        print("")
     elif weight < 3.5:
         print("Your cat is underweight")
+        print("")
     elif weight > 4.5:
         print("Your cat is overweight")
+        print("")
 
     # Program asks for input in order to either continue or break the loop
     keep_going = input("If you would like to keep going press <enter>")
+    print("")
