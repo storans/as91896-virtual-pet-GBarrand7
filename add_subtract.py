@@ -11,8 +11,9 @@ def add_subtract(sign, amount, weight):
             return weight
 
 # Testing of function
-# Getting user input for the amount of weight to add
+# Getting user input for the amount that their cat weighs
 weight = float(input("How much does your pet weigh?"))
+# Getting user input for the amount of weight to add
 add = float(input("How much weight has your pet gained?"))
 # Increasing the cat's weight by the specified amount
 weight = add_subtract("add", add, weight)
