@@ -14,13 +14,13 @@ while keep_going == "":
     weight = float(input("How much does your cat weigh?"))
     print("")
     # Weight is greater than or equal to 3.5 or less than or equal to 4.5 as these are still healthy weights
-    if 3.5 <= weight <= 4.5:
+    if LOW <= weight <= HIGH:
         print("Your cat is in a healthy weight range")
         print("")
-    elif weight < 3.5:
+    elif weight < LOW:
         print("Your cat is underweight")
         print("")
-    elif weight > 4.5:
+    elif weight > HIGH:
         print("Your cat is overweight")
         print("")
 
