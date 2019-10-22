@@ -9,14 +9,24 @@ for activity, amount in EXERCISE.items():
     # Increasing number for numbered list
     number += 1
 
+keep_going = ""
+valid = False
 # Loop for testing purposes
-for i in range(3):
-    # Allowing user to select what exercise they want to do
-    exercise_choice = int(input("Please enter the corresponding number to the exercise you would like your pet to do >> "))
-    # Providing feedback based on the exercise chosen by the user
-    if exercise_choice == 1:
-        print("You cat has chased a mouse and has lost {}kg".format(EXERCISE["chase a mouse"]))
-    elif exercise_choice == 2:
-        print("You cat has climbed a tree and has lost {}kg".format(EXERCISE["climb a tree"]))
-    elif exercise_choice == 3:
-        print("You cat has scratched a post and has lost {}kg".format(EXERCISE["scratch a post"]))
+while keep_going == "":
+    while valid == False:
+        # Allowing user to select what exercise they want to do
+        exercise_choice = int(input("Please enter the corresponding number to the exercise you would like your pet to do >> "))
+        # Providing feedback based on the exercise chosen by the user
+        if exercise_choice == 1:
+            print("You cat has chased a mouse and has lost {}kg".format(EXERCISE["chase a mouse"]))
+            valid = True
+        elif exercise_choice == 2:
+            print("You cat has climbed a tree and has lost {}kg".format(EXERCISE["climb a tree"]))
+            valid = True
+        elif exercise_choice == 3:
+            print("You cat has scratched a post and has lost {}kg".format(EXERCISE["scratch a post"]))
+            valid = True
+        else:
+            print("Please enter either 1, 2, or 3")
+    keep_going = input("Press <enter> to continue")
+    valid = False
