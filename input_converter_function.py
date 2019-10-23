@@ -8,6 +8,10 @@ def name_generator(list_segment, list_name, message):
         name = random.choice(list_name[list_segment])
         print(name)
         generate = input("{}".format(message))
+        if generate in ["yes", "yeah", "y", "sure"]:
+            generate = "yes"
+        elif generate in ["no", "n", "nah", ""]:
+            generate = ""
     return name
 
 def input_converter(question, error):
@@ -27,8 +31,7 @@ def input_converter(question, error):
             print(error)
 
 genders = [['g', 'girl', 'f', 'female'], ['b', 'boy', 'male', 'm'], ['n', 'neutral', 'gn', 'gender neutral']]
-yes = ['yes', 'y']
-no = ['no', 'n']
+
 # Using a 2D list to store the names
 # First list holds girls' names, second list holds boys' names and third list hold names which could be either gender
 names = [["Pixie", "Babushka", "Poppy", "Molly", "Tina", "Tinkerbell"], ["Lord Meowsworth", "Chad", "Ernie", "Clyde", "Mr Cat", "Garfield"], ["Mittens", "Fluffy", "Hairball", "Fleabag", "Minty", "Whiskers", "Ginger"]]
