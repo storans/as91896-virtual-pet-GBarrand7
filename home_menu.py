@@ -11,11 +11,14 @@ print("3. Check your cat's weight")
 print("4. See the game instructions")
 print("5. Quit")
 
+# Variable to allow for continuous loop testing
 keep_going = ""
 valid = False
 # Loop for testing purposes
 while keep_going == "":
+    # Asking for input until user enters a valid input
       while valid == False:
+          # Getting user's choice of activity from the menu
             activity_choice = input("What would you like to do? Select the corresponding number from the menu above >>")
             if activity_choice == "1":
                   print("Let's exercise your cat!")
@@ -34,5 +37,7 @@ while keep_going == "":
                   valid = True
             else:
                   print("Please enter either 1, 2, 3, 4 or 5")
+    # Checking if the loop is needed to keep going for testing
       keep_going = input("Press <enter> to continue")
+    # Resetting valid to False due to continual testing
       valid = False
