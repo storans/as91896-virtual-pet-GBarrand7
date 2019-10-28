@@ -32,9 +32,9 @@ while keep_going == "":
     exercise_choice = integer_checker(3, 1, "Please enter either 1, 2, or 3", "Please enter either 1, 2, or 3",  "Please enter the corresponding number to the exercise you would like your pet to do")
     # Providing feedback based on the exercise chosen by the user
     if exercise_choice == 1:
-        print("You cat has chased a mouse and has lost {}kg".format(EXERCISE["chase a mouse"]))
+        print("Your cat has chased a mouse and has lost {}kg".format(EXERCISE["chase a mouse"]))
     elif exercise_choice == 2:
-        print("You cat has climbed a tree and has lost {}kg".format(EXERCISE["climb a tree"]))
+        print("Your cat has climbed a tree and has lost {}kg".format(EXERCISE["climb a tree"]))
     elif exercise_choice == 3:
-        print("You cat has scratched a post and has lost {}kg".format(EXERCISE["scratch a post"]))
+        print("Your cat has scratched a post and has lost {}kg".format(EXERCISE["scratch a post"]))
     keep_going = input("Press <enter> to continue")
