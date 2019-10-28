@@ -10,15 +10,21 @@ for exercise in exercises:
     print("{}. {} - {}".format(number, exercise[0], exercise[1]))
     # Increasing the number for the numbered list
     number += 1
-
-# Loop for testing purposes
-for i in range(3):
+# Setting valid to false
+valid = False
+# Asking for input until user enters a valid input
+while valid == False:
     # Allowing user to select what exercise they want to do
     exercise_choice = int(input("Please enter the corresponding number to the exercise you would like your pet to do >> "))
     # Providing feedback based on the exercise chosen by the user
     if exercise_choice == 1:
         print("You cat has chased a mouse and has lost {}kg".format(exercises[0][1]))
+        valid = True
     elif exercise_choice == 2:
         print("You cat has climbed a tree and has lost {}kg".format(exercises[1][1]))
+        valid = True
     elif exercise_choice == 3:
         print("You cat has scratched a post and has lost {}kg".format(exercises[2][1]))
+        valid = True
+    else:
+        print("Please enter either 1, 2 or 3")
