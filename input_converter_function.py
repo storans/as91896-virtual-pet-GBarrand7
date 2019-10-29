@@ -15,7 +15,7 @@ def name_generator(list_segment, list_name, message):
         valid = False
         while valid == False:
             # Asking if the user likes the name generated
-            generate = input("{}".format(message))#.strip().lower()
+            generate = input("{}".format(message)).strip().lower()
             # Converting the affirmative inputs into the desired input
             if generate in ["yes", "yeah", "y", "sure"]:
                 generate = "yes"
