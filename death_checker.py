@@ -3,12 +3,16 @@
 # Weight - weight of pet
 # Low - lowest possible weight
 # High - highest possible weight
-# Too_low - message if the cat's weight is too low
-# Too_high - message if the cat's weight is too high
-# Near_low - message is the cat's weight is near being too low
-# Near_high - message is the cat's weight is near being too high
 # Boundary - range above the lowest weight or below the highest weight that if the cat's weight is in it is near being too low or high
-def death_checker(weight, low, high, too_low, too_high, near_low, near_high, boundary):
+def death_checker(weight, low, high, boundary):
+    # Too_low - message if the cat's weight is too low
+    too_low = "You pet has died from starvation"
+    # Too_high - message if the cat's weight is too high
+    too_high = "Your pet has died from obesity"
+    # Near_low - message is the cat's weight is near being too low
+    near_low = "Make sure to feed your cat soon!"
+    # Near_high - message is the cat's weight is near being too high
+    near_high = "Make sure to exercise your cat soon"
     # If cat's weight is below the lowest weight
     if weight < low:
         print(too_low)
@@ -30,5 +34,5 @@ for i in range(5):
     # Getting the weight of the pet from the user
     weight = float(input("How much does your pet weigh?"))
     # Using death checker to check if the entered weight is too high, too low, near the highest weight, near the lowest weight or fine and providing an appropriate feedback message
-    death_checker(weight, 3.5, 4.5, "You pet has died from starvation", "Your pet has died from obesity", "Make sure to feed your cat soon!", "Make sure to exercise your cat soon", 0.3)
+    death_checker(weight, 3.5, 4.5, 0.3)
 
