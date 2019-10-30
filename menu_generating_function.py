@@ -1,3 +1,4 @@
+# Program to test the menu generating functions
 # Functions to generate a menu
 
 # Menu generator for list stored data
