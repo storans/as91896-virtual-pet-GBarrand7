@@ -1,15 +1,29 @@
 # Program to check if a pet's weight is within a certain range
 
-# Function to check if a number is between two values
+# Function to check if a flaot is between two values
+# Parameters:
+# high - highest possible value
+# low - lowest possible value
+# error_1 - error for if the user has entered a float outside of the desired range
+# error_2 - error for if the user has not entered a float
+# question - question which asks for input
 def number_checker(high, low, error_1, error_2, question):
+    # Setting valid to false to run the loop
     valid = False
+    # Loop runs until a valid input is entered
     while valid == False:
+        # Checking if user has entered a valid float
         try:
+            # Getting user's input in response to the question
             response = float(input("{} >> ".format(question)))
+            # Checking if the user's response is within the desired range
             if low <= response <= high:
+                # Returning response for use in the program
                 return response
+            # Branch which runs if user has entered a float outside of the range
             else:
                 print(error_1)
+        # Branch which runs if the user has not entered a float
         except ValueError:
             print(error_2)
 
