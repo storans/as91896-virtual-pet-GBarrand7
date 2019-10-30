@@ -65,7 +65,8 @@ def input_converter(question, error):
         # Branch which runs if the user does not enter any valid input for gender
         else:
             print(error)
-# Function to increase or decrease the cat's weight
+
+# Functions to increase or decrease the cat's weight
 
 # Parameters - amount specifies the amount of weight to be added or subtracted, weight specifies the weight of the cat
 # Function to increase the cat's weight
@@ -84,8 +85,8 @@ def subtract(amount, weight):
 # Parameters - new_weight is the cat's weight after being feed or exercised, low is the lowest possible weight the cat can be, high is the highest possible weight the cat can be, boundary is the bracket within which the cat is near being overweight or underweight
 def death_checker(new_weight, low, high, boundary):
     # Messages for if the cat has died from being too overweight or too underweight, or if they are near being too underweight or overweight
-    too_high = "Your cat has died from obesity"
-    too_low = "Your cat has died from starvation"
+    too_high = "Unfortunately, your cat has eaten too much and has passed away. Make sure to exercise your cat more next time."
+    too_low = "Unfortunately, your cat has not eaten enough and has passed away. Make sure to feed your cat more next time."
     near_low = "Make sure to feed your cat soon!"
     near_high = "Make sure to exercise your cat soon!"
     # If cat's weight is below the lowest weight
@@ -110,7 +111,6 @@ def death_checker(new_weight, low, high, boundary):
         return new_weight
     # If the cat is in a healthy weight range
     else:
-        print("Your cat weighs {}kg".format(new_weight))
         return new_weight
 
 # Functions to generate a menu
@@ -135,7 +135,7 @@ def menu_generator_dict(dictionary, starting_message):
     print(starting_message)
     # Printing each key and value in the dictionary in a formatted form
     for first, second in dictionary.items():
-        print("{}. {} - {}".format(number, first, second))
+        print("{}. {} - {}kg".format(number, first, second))
         # Increasing the number for the numbered list
         number += 1
 
@@ -149,7 +149,7 @@ def float_checker(high, low, error_1, error_2, question):
     while valid == False:
         try:
             # Getting the user's response
-            response = float(input("{} >> ".format(question)))
+            response = float(input("{:.1f} >> ".format(question)))
             # If the response entered is a number within the designated range then the response is returned
             if low <= response <= high:
                 return response
@@ -199,7 +199,7 @@ choice = integer_checker(2, 1, "Please enter either 1 or 2", "Please enter eithe
 # If user chooses to enter their own name
 if choice == 1:
     # Allowing the user to enter a name
-    name = input("What would you like to name your cat? ")
+    name = input("What would you like to name your cat? ").title()
     print("{} is a wonderful name!".format(name))
 
 # If user chooses to have a name generated for them
@@ -228,6 +228,7 @@ elif choice == 2:
 
 # Allowing user to choose their cat's starting weight
 weight = float_checker(4.5, 3.5, "Please enter a weight between 3.5kg - 4.5kg", "Please enter a number", "Now, you can choose {}'s starting weight. Please pick a weight between 3.5 - 4.5kg".format(name))
+# Informing user of their cat's weight and reminding them of the rules and then showing them a cat graphic
 print("{} weighs {}kg. Make sure to keep {} within a healthy weight range of 3.5 - 4.5kg".format(name, weight, name))
 print("Here is your cat {}!\n      \    /\\\n       )  ( ')\n      (  /  )\n       \(__)|".format(name))
 # Home Menu
@@ -241,7 +242,7 @@ generate = False
 
 # Loop runs while generate is equal to false
 while not generate:
-    # Getting user's choice of activity from the menu
+    # Getting user's choice of activity from the menu and checking that it is within the wanted range
     activity_choice = integer_checker(5, 1, "Please enter a number between 1-5", "Please enter a number between 1-5", "What would you like to do? Select the corresponding number from the menu above")
     # User chooses to exercise their cat
     if activity_choice == 1:
@@ -256,70 +257,105 @@ while not generate:
         # Providing feedback based on the exercise chosen by the user
         if exercise_choice == 1:
             print("Your cat has chased a mouse and has lost {}kg".format(EXERCISE["Chase a mouse"]))
+            # Decreasing the cat's weight by the specific amount for the exercise
             weight = subtract(EXERCISE["Chase a mouse"], weight)
+            # Checking if the cat's new weight is too low or near being too low
             weight = death_checker(weight, 3.5, 4.5, 0.3)
+            # Ending the game if the cat has died
             if weight == "dead":
-                generate = True
+                break
+            # Informing the user of their cat's new weight if it has not died
             else:
-                print("{} now weighs {}kg".format(name, weight))
+                print("{} now weighs {:.1f}kg".format(name, weight))
         elif exercise_choice == 2:
             print("Your cat has climbed a tree and has lost {}kg".format(EXERCISE["Climb a tree"]))
+            # Decreasing the cat's weight by the specific amount for the exercise
             weight = subtract(EXERCISE["Climb a tree"], weight)
+            # Checking if the cat's new weight is too low or near being too low
             weight = death_checker(weight, 3.5, 4.5, 0.3)
+            # Ending the game if the cat has died
             if weight == "dead":
-                generate = True
+                break
+            # Informing the user of their cat's new weight if it has not died
             else:
-                print("{} now weighs {}kg".format(name, weight))
+                print("{} now weighs {:.1f}kg".format(name, weight))
         elif exercise_choice == 3:
             print("Your cat has scratched a post and has lost {}kg".format(EXERCISE["Scratch a post"]))
+            # Decreasing the cat's weight by the specific amount for the exercise
             weight = subtract(EXERCISE["Scratch a post"], weight)
+            # Checking if the cat's new weight is too low or near being too low
             weight = death_checker(weight, 3.5, 4.5, 0.3)
+            # Ending the game if the cat has died
             if weight == "dead":
-                generate = True
+                break
+            # Informing the user of their cat's new weight if it has not died
             else:
-                print("{} now weighs {}kg".format(name, weight))
+                print("{} now weighs {:.1f}kg".format(name, weight))
+    # Branch which runs if the user chooses to feed their cat
     elif activity_choice == 2:
         print("Let's feed your cat!")
         # Dictionary of possible foods
         FOODS = {"Salmon": 0.4, "Jelly meat": 0.3, "Biscuits": 0.2}
         print("")
+        # Generating a food menu and their corresponding weight gain values
         menu_generator_dict(FOODS, "FOOD MENU\nHere are the foods your cat can eat and how much weight it will gain if it eats them: ")
+        # Asking user to choose which food they want their cat to eat and checking that they have inputed an integer within the desired range
         food_choice = integer_checker(3, 1, "Please enter either 1, 2, or 3", "Please enter either 1, 2, or 3", "Please enter the corresponding number to the food you would like your cat to eat")
+        # Providing feedback based on the food chosen by the user
         if food_choice == 1:
-            print("Your cat has eaten salmon and has gained {}kg".format(FOODS["salmon"]))
+            print("Your cat has eaten salmon and has gained {}kg".format(FOODS["Salmon"]))
+            # Increasing the cat's weight by the corresponding weight gain value to the chosen food
             weight = add(FOODS["Salmon"], weight)
+            # Checking if the cat's new weight is too high or near being too high
             weight = death_checker(weight, 3.5, 4.5, 0.3)
-            if weight == "dead":
-                generate = True
-            else:
-                print("{} now weighs {}kg".format(name, weight))
-        elif food_choice == 2:
-            print("Your cat has eaten jelly meat and has gained {}kg".format(FOODS["Jelly meat"]))
-            weight = add(FOODS["Jelly meat"], weight)
-            weight = death_checker(weight, 3.5, 4.5, 0.3)
-            if weight == "dead":
-                generate = True
-            else:
-                print("{} now weighs {}kg".format(name, weight))
-        elif food_choice == 3:
-            print("Your cat has eaten biscuits and has gained {}kg".format(FOODS["Biscuits"]))
-            weight = add(FOODS["Biscuits"], weight)
-            weight = death_checker(weight, 3.5, 4.5, 0.3)
+            # Ending the game if the cat has died
             if weight == "dead":
                 break
+            # Informing the user of the cat's new weight if it has not died
             else:
-                print("{} now weighs {}kg".format(name, weight))
+                print("{} now weighs {:.1f}kg".format(name, weight))
+        elif food_choice == 2:
+            print("Your cat has eaten jelly meat and has gained {}kg".format(FOODS["Jelly meat"]))
+            # Increasing the cat's weight by the corresponding weight gain value to the chosen food
+            weight = add(FOODS["Jelly meat"], weight)
+            # Checking if the cat's new weight is too high or near being too high
+            weight = death_checker(weight, 3.5, 4.5, 0.3)
+            # Ending the game if the cat has died
+            if weight == "dead":
+                break
+            # Informing the user of the cat's new weight if it has not died
+            else:
+                print("{} now weighs {:.1f}kg".format(name, weight))
+        elif food_choice == 3:
+            print("Your cat has eaten biscuits and has gained {}kg".format(FOODS["Biscuits"]))
+            # Increasing the cat's weight by the corresponding weight gain value to the chosen food
+            weight = add(FOODS["Biscuits"], weight)
+            # Checking if the cat's new weight is too high or near being too high
+            weight = death_checker(weight, 3.5, 4.5, 0.3)
+            # Ending the game if the cat has died)
+            if weight == "dead":
+                break
+            # Informing the user of the cat's new weight if it has not died
+            else:
+                print("{} now weighs {:.1f}kg".format(name, weight))
+    # Branch which runs if the user wants to check their cat's weight
     elif activity_choice == 3:
         print("Let's check your cat's weight!")
+        # Telling the user their cat's weight
         print("{} weighs {}kg".format(name, weight))
+        # Checking if the cat's weight is near being too low or high and telling the user if they need to feed or exercise their cat
         death_checker(weight, 3.5, 4.5, 0.3)
+    # Branch which runs if the user wants to reread the instructions
     elif activity_choice == 4:
+        # Printing the instructions
         print(""
               "The aim of this game is to keep your cat within a healthy weight range of 3.5 - 4.5kg. If you exercise your cat it will lose wight and if you feed your cat it will gain weight")
+    # Ending the game if the user chooses to quit the game
     elif activity_choice == 5:
         generate = True
 
-
+    # Reprinting the home menu after the user has done an activity which does not end the game and exit the loop
     menu_generator_list(home, "HOME MENU")
 
+# Thanking the user for playing
 print("Thank you for playing Virtual Cat Simulator!")
