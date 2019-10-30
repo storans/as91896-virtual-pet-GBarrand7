@@ -47,9 +47,11 @@ while keep_going == "":
             # Once the user says they like the name the name is printed
             if like == "yes":
                 print("Your cat's name is {}".format(name))
-
+    # Branch which runs if the user has not entered any of the desired inputs and loops back to ask the user for input again
     else:
         print("Please enter either <g>, <b> or <n>")
 
+    # Getting input to either break or continue the testing loop
     keep_going = input("Would you like to keep going? Press <enter> to continue")
+    # Setting like back to "" to allow for continual testing
     like = ""
