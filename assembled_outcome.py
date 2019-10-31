@@ -149,7 +149,7 @@ def float_checker(high, low, error_1, error_2, question):
     while valid == False:
         try:
             # Getting the user's response
-            response = float(input("{:.1f} >> ".format(question)))
+            response = float(input("{} >> ".format(question)))
             # If the response entered is a number within the designated range then the response is returned
             if low <= response <= high:
                 return response
@@ -199,7 +199,7 @@ choice = integer_checker(2, 1, "Please enter either 1 or 2", "Please enter eithe
 # If user chooses to enter their own name
 if choice == 1:
     # Allowing the user to enter a name
-    name = input("What would you like to name your cat? ").title()
+    name = input("What would you like to name your cat? ")
     print("{} is a wonderful name!".format(name))
 
 # If user chooses to have a name generated for them
@@ -229,7 +229,7 @@ elif choice == 2:
 # Allowing user to choose their cat's starting weight
 weight = float_checker(4.5, 3.5, "Please enter a weight between 3.5kg - 4.5kg", "Please enter a number", "Now, you can choose {}'s starting weight. Please pick a weight between 3.5 - 4.5kg".format(name))
 # Informing user of their cat's weight and reminding them of the rules and then showing them a cat graphic
-print("{} weighs {}kg. Make sure to keep {} within a healthy weight range of 3.5 - 4.5kg".format(name, weight, name))
+print("{} weighs {:.1f}kg. Make sure to keep {} within a healthy weight range of 3.5 - 4.5kg".format(name, weight, name))
 print("Here is your cat {}!\n      \    /\\\n       )  ( ')\n      (  /  )\n       \(__)|".format(name))
 # Home Menu
 # List of wanted values for the home menu in the numbered list
