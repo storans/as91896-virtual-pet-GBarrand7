@@ -181,15 +181,37 @@ def integer_checker(high, low, error_1, error_2, question):
         except ValueError:
             print(error_2)
 
-# 2D list of possible gender inputs
-genders = [['g', 'girl', 'f', 'female'], ['b', 'boy', 'male', 'm'], ['n', 'neutral', 'gn', 'genderneutral']]
+# Function to check if the name the user has entered is appropriate or not int terms of profanity
+# Parameter: message - question to get the name input from the user
+def profanity_checker(message):
+    # List of profanities which will be checked for
+    profanities = ["anal", "anus", "arse", "ass", "asshole", "bastard", "bitch", "cock", "crap", "cunt", "damn", "darn",\
+                   "dick", "douche", "fuck", "fucker", "whore", "mother fuck", "mother fucker", "motherfucker", "penis", "piss",\
+                    "porn", "retard", "sex", "sexy", "shit", "slut", "son of a bitch", "tits", "vagina"]
+    # Setting valid to false to run the loop
+    valid = False
+    # User is asked for input until a valid answer is inputted as the loop will continue to run
+    while valid == False:
+        # Asking the user for input of the name, making it lowercase and removing any spaces before or after the input
+        name = input(message).lower().strip()
+        # Checking if the name is in the list of profanities
+        if name in profanities:
+            # Error message saying that the name entered is not appropriate
+            print("That is not a nice name. Please enter a different name")
+        # Branch which runs if the user has entered an appropriate name
+        else:
+            # Making the starting letter of the name capitalised
+            name = name.title()
+            print("{} is a wonderful name!".format(name))
+            # Returning the name for use in the program
+            return name
+
 
 # Start of game
 
-print("Hello, and welcome to the virtual cat simulator!\n"
+print("Hello, and welcome to the Virtual Cat Simulator!\n"
       "In this game you can name your cat, feed it and exercise it.\n"
-      "But, be careful!If your cat gets is not fed enough or is not exercised enough it can pass away,\
-       so make sure your cat stays in a healthy weight range of 3.5-4.5kg.\n"
+      "But, be careful! If your cat gets is not fed enough or is not exercised enough it can pass away, so make sure your cat stays in a healthy weight range of 3.5-4.5kg.\n"
       "We hope you enjoy the game!")
 
 print("")
@@ -202,9 +224,8 @@ menu_generator_list(name_choice, "First, let's name your cat. You have two optio
 choice = integer_checker(2, 1, "Please enter either 1 or 2", "Please enter either 1 or 2", "Enter either 1 or 2 to select how you want to name your cat")
 # If user chooses to enter their own name
 if choice == 1:
-    # Allowing the user to enter a name
-    name = input("What would you like to name your cat? ").title()
-    print("{} is a wonderful name!".format(name))
+    # Allowing the user to enter a name and checking it is appropriate using the profanity checker
+    name = profanity_checker("What would you like to name your cat? ")
 
 # If user chooses to have a name generated for them
 elif choice == 2:
@@ -212,6 +233,8 @@ elif choice == 2:
     # First list holds girls' names, second list holds boys' names and third list hold names which could be either gender
     names = [["Pixie", "Babushka", "Poppy", "Molly", "Tina", "Tinkerbell"], ["Lord Meowsworth", "Chad", "Ernie", "Clyde", "Mr Cat", "Garfield"], ["Mittens", "Fluffy", "Hairball", "Fleabag", "Minty", "Whiskers", "Ginger"]]
 
+    # 2D list of possible gender inputs
+    genders = [['g', 'girl', 'f', 'female'], ['b', 'boy', 'male', 'm'], ['n', 'neutral', 'gn', 'genderneutral']]
     # Allowing user to choose what gender name they would like
     gender = input_converter("Would you like a girl's name or a boy's name? Enter <g> for girl, <b> for boy or <n> for a gender neutral name", "Please enter either <g>, <b> or <n>")
     # If user chooses that they want a girl's name
