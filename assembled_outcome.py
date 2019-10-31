@@ -352,7 +352,7 @@ while not generate:
               "The aim of this game is to keep your cat within a healthy weight range of 3.5 - 4.5kg. If you exercise your cat it will lose wight and if you feed your cat it will gain weight")
     # Ending the game if the user chooses to quit the game
     elif activity_choice == 5:
-        generate = True
+        break
 
     # Reprinting the home menu after the user has done an activity which does not end the game and exit the loop
     menu_generator_list(home, "HOME MENU")
