@@ -187,8 +187,11 @@ genders = [['g', 'girl', 'f', 'female'], ['b', 'boy', 'male', 'm'], ['n', 'neutr
 # Start of game
 
 print("Hello, and welcome to the virtual cat simulator!\n"
-      "In this game you can name your cat, feed it and exercise it.\nBut, be careful!\nIf your cat gets too skinny or too fat it can die, so make sure your cat stays in a healthy weight range of 3.5-4.5kg.\nWe hope you enjoy the game!")
+      "In this game you can name your cat, feed it and exercise it.\n"
+      "But, be careful!If your cat gets too skinny or too fat it can die, so make sure your cat stays in a healthy weight range of 3.5-4.5kg.\n"
+      "We hope you enjoy the game!")
 
+print("")
 # List to store possible options on the numbered list of the name generator menu
 name_choice = ["Choose your own name", "Have a name randomly generated"]
 # Generating a menu to show the user the options they have for selecting a name
@@ -226,17 +229,19 @@ elif choice == 2:
         name = name_generator(2, names, "Do you like this name? Type 'yes' to choose this name or press <enter> to generate another name >> ")
         print("Your cat's name is {}".format(name))
 
+print("")
 # Allowing user to choose their cat's starting weight
 weight = float_checker(4.5, 3.5, "Please enter a weight between 3.5kg - 4.5kg", "Please enter a number", "Now, you can choose {}'s starting weight. Please pick a weight between 3.5 - 4.5kg".format(name))
 # Informing user of their cat's weight and reminding them of the rules and then showing them a cat graphic
 print("{} weighs {:.1f}kg. Make sure to keep {} within a healthy weight range of 3.5 - 4.5kg".format(name, weight, name))
+print("")
 print("Here is your cat {}!\n      \    /\\\n       )  ( ')\n      (  /  )\n       \(__)|".format(name))
 # Home Menu
 # List of wanted values for the home menu in the numbered list
 home = ["Exercise your cat", "Feed your cat", "Check your cat's weight", "See the game instructions", "Quit"]
 # Generating the home menu
 menu_generator_list(home, "You are now set up to play Virtual Cat Simulator! We hope you enjoy the game!\n \nHOME MENU")
-
+print("")
 # Setting generate to false
 generate = False
 
@@ -255,7 +260,9 @@ while not generate:
         # Adding option to go back to home menu separately as it uses different formatting
         print("4. Go back to the home menu")
         # Allowing user to select what exercise they want to do or to go back to the home menu
+        print("")
         exercise_choice = integer_checker(4, 1, "Please enter either 1, 2, 3 or 4", "Please enter either 1, 2, 3 or 4", "Please enter the corresponding number to the exercise you would like your cat to do")
+        print("")
         # Providing feedback based on the exercise chosen by the user
         if exercise_choice == 1:
             print("Your cat has chased a mouse and has lost {}kg".format(EXERCISE["Chase a mouse"]))
@@ -307,7 +314,9 @@ while not generate:
         # Printing option to go back to the home menu separately as it uses different formatting
         print("4. Go back to the home menu")
         # Asking user to choose which food they want their cat to eat and checking that they have inputed an integer within the desired range
+        print("")
         food_choice = integer_checker(4, 1, "Please enter either 1, 2, 3 or 4", "Please enter either 1, 2, 3 or 4", "Please enter the corresponding number to the food you would like your cat to eat")
+        print("")
         # Providing feedback based on the food chosen by the user
         if food_choice == 1:
             print("Your cat has eaten salmon and has gained {}kg".format(FOODS["Salmon"]))
@@ -350,6 +359,7 @@ while not generate:
             print("")
     # Branch which runs if the user wants to check their cat's weight
     elif activity_choice == 3:
+        print("")
         print("Let's check your cat's weight!")
         # Telling the user their cat's weight
         print("{} weighs {:.1f}kg".format(name, weight))
@@ -357,15 +367,19 @@ while not generate:
         death_checker(weight, 3.5, 4.5, 0.3)
     # Branch which runs if the user wants to reread the instructions
     elif activity_choice == 4:
+        print("")
         # Printing the instructions
         print(""
-              "The aim of this game is to keep your cat within a healthy weight range of 3.5 - 4.5kg. If you exercise your cat it will lose wight and if you feed your cat it will gain weight")
+              "The aim of this game is to keep your cat within a healthy weight range of 3.5 - 4.5kg.\n"
+              "If you exercise your cat it will lose weight and if you feed your cat it will gain weight")
     # Ending the game if the user chooses to quit the game
     elif activity_choice == 5:
         break
 
     # Reprinting the home menu after the user has done an activity which does not end the game and exit the loop
+    print("")
     menu_generator_list(home, "HOME MENU")
+    print("")
 
 # Thanking the user for playing
 print("Thank you for playing Virtual Cat Simulator!")
