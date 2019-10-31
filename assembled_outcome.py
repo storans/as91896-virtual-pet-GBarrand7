@@ -198,7 +198,7 @@ name_choice = ["Choose your own name", "Have a name randomly generated"]
 menu_generator_list(name_choice, "First, let's name your cat. You have two options: ")
 
 # Allowing user to make their choice for how to name their pet
-choice = integer_checker(2, 1, "Please enter either 1 or 2", "Please enter either 1 or 2", "Press either <1> or <2> to select how you want to name your cat")
+choice = integer_checker(2, 1, "Please enter either 1 or 2", "Please enter either 1 or 2", "Enter either <1> or <2> to select how you want to name your cat")
 # If user chooses to enter their own name
 if choice == 1:
     # Allowing the user to enter a name
@@ -212,26 +212,27 @@ elif choice == 2:
     names = [["Pixie", "Babushka", "Poppy", "Molly", "Tina", "Tinkerbell"], ["Lord Meowsworth", "Chad", "Ernie", "Clyde", "Mr Cat", "Garfield"], ["Mittens", "Fluffy", "Hairball", "Fleabag", "Minty", "Whiskers", "Ginger"]]
 
     # Allowing user to choose what gender name they would like
-    gender = input_converter("Would you like a girl's name or a boy's name? Press <g> for girl, <b> for boy or <n> for a gender neutral name", "Please enter either <g>, <b> or <n>")
+    gender = input_converter("Would you like a girl's name or a boy's name? Enter <g> for girl, <b> for boy or <n> for a gender neutral name", "Please enter either <g>, <b> or <n>")
     # If user chooses that they want a girl's name
     if gender == "g":
         # Randomly generating a name from the girl's name list until the user says they like the name using the name_generator function
-        name = name_generator(0, names, "Do you like this name? Type 'yes' to choose this name or press <enter> to generate another name >> ")
+        name = name_generator(0, names, "Do you like this name? Enter 'yes' to choose this name or 'no' to generate another name >> ")
         print("Your cat's name is {}".format(name))
     # If user chooses that they want a boy's name
     elif gender == "b":
         # Randomly generating a name from the boy's name list until the user says they like the name using the name_generator function
-        name = name_generator(1, names, "Do you like this name? Type 'yes' to choose this name or press <enter> to generate another name >> ")
+        name = name_generator(1, names, "Do you like this name? Enter 'yes' to choose this name or 'no' to generate another name >> ")
         print("Your cat's name is {}".format(name))
     # If user chooses that they want a gender neutral name
     elif gender == "n":
         # Randomly generating a name from the gender neutral name list until the user says they like the name using the name_generator function
-        name = name_generator(2, names, "Do you like this name? Type 'yes' to choose this name or press <enter> to generate another name >> ")
+        name = name_generator(2, names, "Do you like this name? Enter 'yes' to choose this name or 'no' to generate another name >> ")
         print("Your cat's name is {}".format(name))
 
 print("")
+print("Now, you can choose {}'s starting weight.".format(name))
 # Allowing user to choose their cat's starting weight
-weight = float_checker(4.5, 3.5, "Please enter a weight between 3.5kg - 4.5kg", "Please enter a number", "Now, you can choose {}'s starting weight. Please pick a weight between 3.5 - 4.5kg".format(name))
+weight = float_checker(4.5, 3.5, "Please enter a weight between 3.5kg - 4.5kg", "Please enter a number", "Please pick a weight between 3.5 - 4.5kg")
 # Informing user of their cat's weight and reminding them of the rules and then showing them a cat graphic
 print("{} weighs {:.1f}kg. Make sure to keep {} within a healthy weight range of 3.5 - 4.5kg".format(name, weight, name))
 print("")
