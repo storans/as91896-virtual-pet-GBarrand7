@@ -252,8 +252,10 @@ while not generate:
         print("")
         # Generating a menu of exercises for the user to pick from
         menu_generator_dict(EXERCISE, "EXERCISE MENU\nHere are the exercises your cat can do and how much weight it will lose if it does them: ")
-        # Allowing user to select what exercise they want to do
-        exercise_choice = integer_checker(3, 1, "Please enter either 1, 2, or 3", "Please enter either 1, 2, or 3", "Please enter the corresponding number to the exercise you would like your cat to do")
+        # Adding option to go back to home menu separately as it uses different formatting
+        print("4. Go back to the home menu")
+        # Allowing user to select what exercise they want to do or to go back to the home menu
+        exercise_choice = integer_checker(4, 1, "Please enter either 1, 2, 3 or 4", "Please enter either 1, 2, 3 or 4", "Please enter the corresponding number to the exercise you would like your cat to do")
         # Providing feedback based on the exercise chosen by the user
         if exercise_choice == 1:
             print("Your cat has chased a mouse and has lost {}kg".format(EXERCISE["Chase a mouse"]))
@@ -291,6 +293,9 @@ while not generate:
             # Informing the user of their cat's new weight if it has not died
             else:
                 print("{} now weighs {:.1f}kg".format(name, weight))
+        # Branch which runs if the user wants to go back to the home menu
+        elif exercise_choice == 4:
+            ("")
     # Branch which runs if the user chooses to feed their cat
     elif activity_choice == 2:
         print("Let's feed your cat!")
@@ -299,8 +304,10 @@ while not generate:
         print("")
         # Generating a food menu and their corresponding weight gain values
         menu_generator_dict(FOODS, "FOOD MENU\nHere are the foods your cat can eat and how much weight it will gain if it eats them: ")
+        # Printing option to go back to the home menu separately as it uses different formatting
+        print("4. Go back to the home menu")
         # Asking user to choose which food they want their cat to eat and checking that they have inputed an integer within the desired range
-        food_choice = integer_checker(3, 1, "Please enter either 1, 2, or 3", "Please enter either 1, 2, or 3", "Please enter the corresponding number to the food you would like your cat to eat")
+        food_choice = integer_checker(4, 1, "Please enter either 1, 2, 3 or 4", "Please enter either 1, 2, 3 or 4", "Please enter the corresponding number to the food you would like your cat to eat")
         # Providing feedback based on the food chosen by the user
         if food_choice == 1:
             print("Your cat has eaten salmon and has gained {}kg".format(FOODS["Salmon"]))
@@ -338,6 +345,9 @@ while not generate:
             # Informing the user of the cat's new weight if it has not died
             else:
                 print("{} now weighs {:.1f}kg".format(name, weight))
+        # Branch which runs if user wants to return to the home menu
+        elif food_choice == 4:
+            print("")
     # Branch which runs if the user wants to check their cat's weight
     elif activity_choice == 3:
         print("Let's check your cat's weight!")
