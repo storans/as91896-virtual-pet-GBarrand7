@@ -368,15 +368,20 @@ print("Here is your cat {}!\n      \    /\\"
 # List of wanted values for the home menu in the numbered list
 home = ["Exercise your cat", "Feed your cat", "Check your cat's weight",
         "See the game instructions", "Quit"]
-# Generating the home menu
-menu_generator_list(home, "You are now set up to play Virtual Cat Simulator!\
- We hope you enjoy the game!\n \nHOME MENU")
+
 print("")
-# Setting generate to false
-generate = False
+print("You are now set up to play Virtual Cat Simulator!\
+ We hope you enjoy the game!")
+
+# Setting the number of turns taken to 0 at the start of the game
+turns = 0
 
 # Loop runs while generate is equal to false
-while not generate:
+while turns <= 20:
+    # Generating the home menu
+    print("")
+    menu_generator_list(home, "HOME MENU")
+    print("")
     # Getting user's choice of activity from the menu
     # and checking that it is within the wanted range
     activity_choice = integer_checker(5, 1,
@@ -423,6 +428,8 @@ while not generate:
             # Informing the user of their cat's new weight if it has not died
             else:
                 print("{} now weighs {:.1f}kg".format(name, weight))
+                # Increasing the number of turns taken by 1
+                turns += 1
         elif exercise_choice == 2:
             print("Your cat has climbed a tree and has lost {}kg"
                   .format(EXERCISE["Climb a tree"]))
@@ -437,6 +444,8 @@ while not generate:
             # Informing the user of their cat's new weight if it has not died
             else:
                 print("{} now weighs {:.1f}kg".format(name, weight))
+                # Increasing the number of turns taken by 1
+                turns += 1
         elif exercise_choice == 3:
             print("Your cat has scratched a post and has lost {}kg"
                   .format(EXERCISE["Scratch a post"]))
@@ -451,6 +460,8 @@ while not generate:
             # Informing the user of their cat's new weight if it has not died
             else:
                 print("{} now weighs {:.1f}kg".format(name, weight))
+                # Increasing the number of turns taken by 1
+                turns += 1
         # Branch which runs if the user wants to go back to the home menu
         elif exercise_choice == 4:
             ("")
@@ -493,6 +504,8 @@ while not generate:
             # Informing the user of the cat's new weight if it has not died
             else:
                 print("{} now weighs {:.1f}kg".format(name, weight))
+                # Increasing the number of turns taken by 1
+                turns += 1
         elif food_choice == 2:
             print("Your cat has eaten jelly meat and has gained {}kg"
                   .format(FOODS["Jelly meat"]))
@@ -508,6 +521,8 @@ while not generate:
             # Informing the user of the cat's new weight if it has not died
             else:
                 print("{} now weighs {:.1f}kg".format(name, weight))
+                # Increasing the number of turns taken by 1
+                turns += 1
         elif food_choice == 3:
             print("Your cat has eaten biscuits and has gained {}kg"
                   .format(FOODS["Biscuits"]))
@@ -523,6 +538,8 @@ while not generate:
             # Informing the user of the cat's new weight if it has not died
             else:
                 print("{} now weighs {:.1f}kg".format(name, weight))
+                # Increasing the number of turns taken by 1
+                turns += 1
         # Branch which runs if user wants to return to the home menu
         elif food_choice == 4:
             print("")
@@ -548,11 +565,12 @@ while not generate:
     elif activity_choice == 5:
         break
 
-    # Reprinting the home menu after the user
-    # has done an activity which does not end the game and exit the loop
+# Message for if the user has not killed their cat but has had the maximum number of turns
+if turns == 21:
     print("")
-    menu_generator_list(home, "HOME MENU")
-    print("")
+    print("You have taken excellent care of {} and have won the game!".format(name))
+
 
 # Thanking the user for playing
+print("")
 print("Thank you for playing Virtual Cat Simulator!")
