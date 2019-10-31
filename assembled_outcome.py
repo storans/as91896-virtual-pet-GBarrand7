@@ -188,7 +188,8 @@ genders = [['g', 'girl', 'f', 'female'], ['b', 'boy', 'male', 'm'], ['n', 'neutr
 
 print("Hello, and welcome to the virtual cat simulator!\n"
       "In this game you can name your cat, feed it and exercise it.\n"
-      "But, be careful!If your cat gets too skinny or too fat it can die, so make sure your cat stays in a healthy weight range of 3.5-4.5kg.\n"
+      "But, be careful!If your cat gets is not fed enough or is not exercised enough it can pass away,\
+       so make sure your cat stays in a healthy weight range of 3.5-4.5kg.\n"
       "We hope you enjoy the game!")
 
 print("")
@@ -198,7 +199,7 @@ name_choice = ["Choose your own name", "Have a name randomly generated"]
 menu_generator_list(name_choice, "First, let's name your cat. You have two options: ")
 
 # Allowing user to make their choice for how to name their pet
-choice = integer_checker(2, 1, "Please enter either 1 or 2", "Please enter either 1 or 2", "Enter either <1> or <2> to select how you want to name your cat")
+choice = integer_checker(2, 1, "Please enter either 1 or 2", "Please enter either 1 or 2", "Enter either 1 or 2 to select how you want to name your cat")
 # If user chooses to enter their own name
 if choice == 1:
     # Allowing the user to enter a name
