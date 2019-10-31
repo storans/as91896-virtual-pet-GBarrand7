@@ -199,7 +199,7 @@ choice = integer_checker(2, 1, "Please enter either 1 or 2", "Please enter eithe
 # If user chooses to enter their own name
 if choice == 1:
     # Allowing the user to enter a name
-    name = input("What would you like to name your cat? ")
+    name = input("What would you like to name your cat? ").title()
     print("{} is a wonderful name!".format(name))
 
 # If user chooses to have a name generated for them
@@ -342,7 +342,7 @@ while not generate:
     elif activity_choice == 3:
         print("Let's check your cat's weight!")
         # Telling the user their cat's weight
-        print("{} weighs {}kg".format(name, weight))
+        print("{} weighs {:.1f}kg".format(name, weight))
         # Checking if the cat's weight is near being too low or high and telling the user if they need to feed or exercise their cat
         death_checker(weight, 3.5, 4.5, 0.3)
     # Branch which runs if the user wants to reread the instructions
