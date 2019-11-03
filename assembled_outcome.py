@@ -248,8 +248,9 @@ def integer_checker(high, low, error_1, error_2, question):
 # Parameter: message - question to get the name input from the user
 def profanity_checker(message):
     # List of profanities which will be checked for
+    # In an actual outcome this list would need to be extended
     profanities = ["anal", "anus", "arse", "ass", "asshole", "bastard",
-                   "bitch", "cock", "crap", "cunt", "damn", "darn",
+                   "bitch", "cock", "crap", "damn", "darn",
                    "dick", "douche", "fuck", "fucker", "whore", "mother fuck",
                    "mother fucker", "motherfucker", "penis", "piss", "porn",
                    "retard", "sex", "sexy", "shit", "slut", "son of a bitch",
@@ -382,6 +383,7 @@ while turns <= 20:
     print("")
     menu_generator_list(home, "HOME MENU")
     print("")
+
     # Getting user's choice of activity from the menu
     # and checking that it is within the wanted range
     activity_choice = integer_checker(5, 1,
@@ -430,6 +432,7 @@ while turns <= 20:
                 print("{} now weighs {:.1f}kg".format(name, weight))
                 # Increasing the number of turns taken by 1
                 turns += 1
+
         elif exercise_choice == 2:
             print("Your cat has climbed a tree and has lost {}kg"
                   .format(EXERCISE["Climb a tree"]))
@@ -446,6 +449,7 @@ while turns <= 20:
                 print("{} now weighs {:.1f}kg".format(name, weight))
                 # Increasing the number of turns taken by 1
                 turns += 1
+
         elif exercise_choice == 3:
             print("Your cat has scratched a post and has lost {}kg"
                   .format(EXERCISE["Scratch a post"]))
@@ -462,6 +466,7 @@ while turns <= 20:
                 print("{} now weighs {:.1f}kg".format(name, weight))
                 # Increasing the number of turns taken by 1
                 turns += 1
+
         # Branch which runs if the user wants to go back to the home menu
         elif exercise_choice == 4:
             ("")
@@ -506,6 +511,7 @@ while turns <= 20:
                 print("{} now weighs {:.1f}kg".format(name, weight))
                 # Increasing the number of turns taken by 1
                 turns += 1
+
         elif food_choice == 2:
             print("Your cat has eaten jelly meat and has gained {}kg"
                   .format(FOODS["Jelly meat"]))
@@ -523,6 +529,7 @@ while turns <= 20:
                 print("{} now weighs {:.1f}kg".format(name, weight))
                 # Increasing the number of turns taken by 1
                 turns += 1
+
         elif food_choice == 3:
             print("Your cat has eaten biscuits and has gained {}kg"
                   .format(FOODS["Biscuits"]))
@@ -540,6 +547,7 @@ while turns <= 20:
                 print("{} now weighs {:.1f}kg".format(name, weight))
                 # Increasing the number of turns taken by 1
                 turns += 1
+
         # Branch which runs if user wants to return to the home menu
         elif food_choice == 4:
             print("")
