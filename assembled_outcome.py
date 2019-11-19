@@ -1,4 +1,4 @@
-# First version of assembled outcome
+# Assembled outcome
 # Import random module for use throughout the program
 # to randomly generate various things - e.g names
 
@@ -474,7 +474,7 @@ to the exercise you would like your cat to do")
 
             # Branch which runs if the user wants to go back to the home menu
             elif exercise_choice == 4:
-                ("")
+                print("")
         # Branch which runs if the user chooses to feed their cat
         elif activity_choice == 2:
             print("Let's feed your cat!")
