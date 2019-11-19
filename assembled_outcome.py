@@ -268,6 +268,10 @@ def profanity_checker(message):
         if name in profanities:
             # Error message saying that the name entered is not appropriate
             print("That is not a nice name. Please enter a different name")
+        # Checking if the user has not entered a name
+        elif name == "":
+            # Error message for if the user has not entered a name
+            print("Please enter a name")
         # Branch which runs if the user has entered an appropriate name
         else:
             # Making the starting letter of the name capitalised
