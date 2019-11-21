@@ -1,4 +1,7 @@
-# Assembled outcome
+# Georgia Barrand
+# Assembled outcome - Version 8
+# The purpose of this program is to provide a fun virtual cat simulator game for kids to play
+
 # Import random module for use throughout the program
 # to randomly generate various things - e.g names
 
@@ -41,6 +44,19 @@ EXERCISE = {"Chase a mouse": 0.4, "Climb a tree": 0.3, "Scratch a post": 0.2}
 
 # Dictionary of possible foods
 FOODS = {"Salmon": 0.4, "Jelly meat": 0.3, "Biscuits": 0.2}
+
+# Messages for if the cat has died from being too overweight
+# or too underweight, or if they are near being
+# too underweight or overweight
+TOO_HIGH = "Unfortunately, your cat has eaten too much and has passed away.\
+ Make sure to exercise your cat more next time."
+
+TOO_LOW = "Unfortunately, your cat has not eaten enough and has passed away.\
+ Make sure to feed your cat more next time."
+
+NEAR_LOW = "Make sure to feed your cat soon!"
+
+NEAR_HIGH = "Make sure to exercise your cat soon!"
 
 
 # Function to randomly generate a name
@@ -151,15 +167,6 @@ def subtract(amount, weight):
 # boundary - the bracket within which the cat is near being
 # overweight or underweight
 def death_checker(new_weight, low, high, boundary):
-    # Messages for if the cat has died from being too overweight
-    # or too underweight, or if they are near being
-    # too underweight or overweight
-    TOO_HIGH = "Unfortunately, your cat has eaten too much and has passed away.\
- Make sure to exercise your cat more next time."
-    TOO_LOW = "Unfortunately, your cat has not eaten enough and has passed away.\
- Make sure to feed your cat more next time."
-    NEAR_LOW = "Make sure to feed your cat soon!"
-    NEAR_HIGH = "Make sure to exercise your cat soon!"
     # If cat's weight is below the lowest weight
     if new_weight < low:
         print(TOO_LOW)
@@ -310,6 +317,7 @@ def profanity_checker(message):
             print("{} is a wonderful name!".format(name))
             # Returning the name for use in the program
             return name
+
 
 if __name__ == "__main__":
     # Start of game
