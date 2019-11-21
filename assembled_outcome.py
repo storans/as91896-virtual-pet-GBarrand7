@@ -4,6 +4,10 @@
 
 import random
 
+# List to store possible options on the numbered list
+# of the name generator menu
+NAME_CHOICE = ["Choose your own name", "Have a name randomly generated"]
+
 # List of profanities which will be checked for
 # In an actual outcome this list would need to be extended
 PROFANITIES = ["anal", "anus", "arse", "ass", "asshole", "bastard",
@@ -150,22 +154,22 @@ def death_checker(new_weight, low, high, boundary):
     # Messages for if the cat has died from being too overweight
     # or too underweight, or if they are near being
     # too underweight or overweight
-    too_high = "Unfortunately, your cat has eaten too much and has passed away.\
+    TOO_HIGH = "Unfortunately, your cat has eaten too much and has passed away.\
  Make sure to exercise your cat more next time."
-    too_low = "Unfortunately, your cat has not eaten enough and has passed away.\
+    TOO_LOW = "Unfortunately, your cat has not eaten enough and has passed away.\
  Make sure to feed your cat more next time."
-    near_low = "Make sure to feed your cat soon!"
-    near_high = "Make sure to exercise your cat soon!"
+    NEAR_LOW = "Make sure to feed your cat soon!"
+    NEAR_HIGH = "Make sure to exercise your cat soon!"
     # If cat's weight is below the lowest weight
     if new_weight < low:
-        print(too_low)
+        print(TOO_LOW)
         # Setting cat's weight to "dead"
         #  and returning this for use in the program
         new_weight = "dead"
         return new_weight
     # If cat's weight is above the highest weight
     elif new_weight > high:
-        print(too_high)
+        print(TOO_HIGH)
         # Setting cat's weight to "dead"
         # and returning this for use in the program
         new_weight = "dead"
@@ -173,12 +177,12 @@ def death_checker(new_weight, low, high, boundary):
     # If cat's weight is between the lowest weight
     # and a weight near the lowest weight (e.g 3.5 - 3.8)
     elif low <= new_weight <= (low + boundary):
-        print(near_low)
+        print(NEAR_LOW)
         return new_weight
     # If cat's weight is below the highest weight
     # and a weight near the highest weight (e.g 4.2 - 4.5
     elif high >= new_weight >= (high - boundary):
-        print(near_high)
+        print(NEAR_HIGH)
         return new_weight
     # If the cat is in a healthy weight range
     else:
@@ -319,12 +323,10 @@ healthy weight range of 3.5-4.5kg.\n"
           "We hope you enjoy the game!")
 
     print("")
-    # List to store possible options on the numbered list
-    # of the name generator menu
-    name_choice = ["Choose your own name", "Have a name randomly generated"]
+
     # Generating a menu to show the user the options
     # they have for selecting a name
-    menu_generator_list(name_choice,
+    menu_generator_list(NAME_CHOICE,
                         "First, let's name your cat. You have two options: ")
 
     # Allowing user to make their choice for how to name their pet
