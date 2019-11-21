@@ -4,6 +4,40 @@
 
 import random
 
+# List of profanities which will be checked for
+# In an actual outcome this list would need to be extended
+PROFANITIES = ["anal", "anus", "arse", "ass", "asshole", "bastard",
+               "bitch", "cock", "crap", "damn", "darn",
+               "dick", "douche", "fuck", "fucker", "whore", "mother fuck",
+               "mother fucker", "motherfucker", "penis", "piss", "porn",
+               "retard", "sex", "sexy", "shit", "slut", "son of a bitch",
+               "tits", "vagina"]
+
+# Using a 2D list to store the names
+# First list holds girls' names
+# Second list holds boys' names
+# Third list hold names which could be either gender
+NAMES = [["Pixie", "Babushka", "Poppy", "Molly", "Tina", "Tinkerbell"],
+         ["Lord Meowsworth", "Chad", "Ernie", "Clyde",
+          "Mr Cat", "Garfield"],
+         ["Mittens", "Fluffy", "Hairball", "Fleabag",
+          "Minty", "Whiskers", "Ginger"]]
+
+# 2D list of possible gender inputs
+GENDERS = [['g', 'girl', 'f', 'female'],
+           ['b', 'boy', 'male', 'm'],
+           ['n', 'neutral', 'gn', 'gender neutral']]
+
+# List of wanted values for the home menu in the numbered list
+HOME = ["Exercise your cat", "Feed your cat", "Check your cat's weight",
+        "See the game instructions", "Quit"]
+
+# Dictionary of possible exercises
+EXERCISE = {"Chase a mouse": 0.4, "Climb a tree": 0.3, "Scratch a post": 0.2}
+
+# Dictionary of possible foods
+FOODS = {"Salmon": 0.4, "Jelly meat": 0.3, "Biscuits": 0.2}
+
 
 # Function to randomly generate a name
 # Parameters:
@@ -64,19 +98,19 @@ def input_converter(question, error):
         gender = input("{} >> ".format(question)).strip().lower()
         # Checking if the gender is within the
         # approved list of inputs for female gender
-        if gender in genders[0]:
+        if gender in GENDERS[0]:
             # Changing input to the standard input
             gender = "g"
             return gender
         # Checking if the gender is within the
         # approved list of inputs for male gender
-        elif gender in genders[1]:
+        elif gender in GENDERS[1]:
             # Changing input to the standard input
             gender = "b"
             return gender
         # Checking if the gender is within the
         # approved list of inputs for gender neutral
-        elif gender in genders[2]:
+        elif gender in GENDERS[2]:
             # Changing input to the standard input
             gender = "n"
             return gender
@@ -247,14 +281,7 @@ def integer_checker(high, low, error_1, error_2, question):
 # or not in terms of profanity
 # Parameter: message - question to get the name input from the user
 def profanity_checker(message):
-    # List of profanities which will be checked for
-    # In an actual outcome this list would need to be extended
-    profanities = ["anal", "anus", "arse", "ass", "asshole", "bastard",
-                   "bitch", "cock", "crap", "damn", "darn",
-                   "dick", "douche", "fuck", "fucker", "whore", "mother fuck",
-                   "mother fucker", "motherfucker", "penis", "piss", "porn",
-                   "retard", "sex", "sexy", "shit", "slut", "son of a bitch",
-                   "tits", "vagina"]
+
     # Setting valid to false to run the loop
     valid = False
     # User is asked for input until a valid answer is inputted
@@ -265,7 +292,7 @@ def profanity_checker(message):
         # Removing any spaces before or after the input
         name = input(message).lower().strip()
         # Checking if the name is in the list of profanities
-        if name in profanities:
+        if name in PROFANITIES:
             # Error message saying that the name entered is not appropriate
             print("That is not a nice name. Please enter a different name")
         # Checking if the user has not entered a name
@@ -279,7 +306,6 @@ def profanity_checker(message):
             print("{} is a wonderful name!".format(name))
             # Returning the name for use in the program
             return name
-
 
 if __name__ == "__main__":
     # Start of game
@@ -308,26 +334,14 @@ healthy weight range of 3.5-4.5kg.\n"
 how you want to name your cat")
     # If user chooses to enter their own name
     if choice == 1:
+
         # Allowing the user to enter a name
         # and checking it is appropriate using the profanity checker
         name = profanity_checker("What would you like to name your cat? ")
 
     # If user chooses to have a name generated for them
     elif choice == 2:
-        # Using a 2D list to store the names
-        # First list holds girls' names
-        # Second list holds boys' names
-        # Third list hold names which could be either gender
-        names = [["Pixie", "Babushka", "Poppy", "Molly", "Tina", "Tinkerbell"],
-                 ["Lord Meowsworth", "Chad", "Ernie", "Clyde",
-                  "Mr Cat", "Garfield"],
-                 ["Mittens", "Fluffy", "Hairball", "Fleabag",
-                  "Minty", "Whiskers", "Ginger"]]
 
-        # 2D list of possible gender inputs
-        genders = [['g', 'girl', 'f', 'female'],
-                   ['b', 'boy', 'male', 'm'],
-                   ['n', 'neutral', 'gn', 'gender neutral']]
         # Allowing user to choose what gender name they would like
         gender = input_converter("Would you like a girl's name or a boy's name? \
 Enter <g> for girl, <b> for boy or <n> for a gender neutral name",
@@ -337,7 +351,7 @@ Enter <g> for girl, <b> for boy or <n> for a gender neutral name",
             # Randomly generating a name from the girl's name list
             # until the user says they like the name
             # using the name_generator function
-            name = name_generator(0, names, "Do you like this name? \
+            name = name_generator(0, NAMES, "Do you like this name? \
 Enter 'yes' to choose this name or 'no' to generate another name >> ")
             print("Your cat's name is {}".format(name))
         # If user chooses that they want a boy's name
@@ -345,7 +359,7 @@ Enter 'yes' to choose this name or 'no' to generate another name >> ")
             # Randomly generating a name from the boy's name list
             # until the user says they like the name
             # using the name_generator function
-            name = name_generator(1, names, "Do you like this name? \
+            name = name_generator(1, NAMES, "Do you like this name? \
 Enter 'yes' to choose this name or 'no' to generate another name >> ")
             print("Your cat's name is {}".format(name))
         # If user chooses that they want a gender neutral name
@@ -353,7 +367,7 @@ Enter 'yes' to choose this name or 'no' to generate another name >> ")
             # Randomly generating a name from the gender neutral name list
             # until the user says they like the name
             # using the name_generator function
-            name = name_generator(2, names, "Do you like this name? \
+            name = name_generator(2, NAMES, "Do you like this name? \
 Enter 'yes' to choose this name or 'no' to generate another name >> ")
             print("Your cat's name is {}".format(name))
 
@@ -370,11 +384,8 @@ within a healthy weight range of 3.5 - 4.5kg".format(name, weight, name))
     print("")
     print("Here is your cat {}!\n      \    /\\"
           "\n       )  ( ')\n      (  /  )\n       \(__)|".format(name))
-    # Home Menu
-    # List of wanted values for the home menu in the numbered list
-    home = ["Exercise your cat", "Feed your cat", "Check your cat's weight",
-            "See the game instructions", "Quit"]
 
+    # Home Menu
     print("")
     print("You are now set up to play Virtual Cat Simulator! \
 We hope you enjoy the game!")
@@ -386,7 +397,7 @@ We hope you enjoy the game!")
     while turns <= 20:
         # Generating the home menu
         print("")
-        menu_generator_list(home, "HOME MENU")
+        menu_generator_list(HOME, "HOME MENU")
         print("")
 
         # Getting user's choice of activity from the menu
@@ -399,10 +410,6 @@ Select the corresponding number from the menu above")
         # User chooses to exercise their cat
         if activity_choice == 1:
             print("Let's exercise your cat!")
-            # Dictionary of possible exercises
-            EXERCISE = {"Chase a mouse": 0.4,
-                        "Climb a tree": 0.3,
-                        "Scratch a post": 0.2}
             print("")
             # Generating a menu of exercises for the user to pick from
             menu_generator_dict(EXERCISE, "EXERCISE MENU\n"
@@ -478,8 +485,6 @@ to the exercise you would like your cat to do")
         # Branch which runs if the user chooses to feed their cat
         elif activity_choice == 2:
             print("Let's feed your cat!")
-            # Dictionary of possible foods
-            FOODS = {"Salmon": 0.4, "Jelly meat": 0.3, "Biscuits": 0.2}
             print("")
             # Generating a food menu and their corresponding weight gain values
             menu_generator_dict(FOODS,
